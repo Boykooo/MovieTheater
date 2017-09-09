@@ -52,4 +52,30 @@ class FilmController
 
         return $films;
     }
+
+    public function getOneFilm($id) {
+        $query = "select * from film where id = $id";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $film = null;
+        if ($row != null) {
+            $film = array(
+                "id" => $row['id'],
+                "name" => $row['name'],
+                "start_date" => $row['start_date'],
+                "end_date" => $row['end_date'],
+                "pg" => $row['pg'],
+                "director" => $row['director'],
+                "stars" => $row['stars'],
+                "genre" => $row['genre'],
+                "duration" => $row['duration'],
+                "description" => $row['description'],
+                "production" => $row['production']
+            );
+        }
+
+        return $film;
+    }
 }
