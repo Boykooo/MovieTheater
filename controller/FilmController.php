@@ -17,6 +17,7 @@ class FilmController
     public $duration;
     public $description;
     public $production;
+    public $img_href;
 
     public function __construct()
     {
@@ -44,7 +45,8 @@ class FilmController
                 "genre" => $row['genre'],
                 "duration" => $row['duration'],
                 "description" => $row['description'],
-                "production" => $row['production']
+                "production" => $row['production'],
+                "img_href" => $row['img_href']
             );
 
             array_push($films, $item);
@@ -72,7 +74,8 @@ class FilmController
                 "genre" => $row['genre'],
                 "duration" => $row['duration'],
                 "description" => $row['description'],
-                "production" => $row['production']
+                "production" => $row['production'],
+                "img_href" => $row['img_href']
             );
         }
 

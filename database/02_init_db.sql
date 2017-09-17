@@ -1,4 +1,4 @@
-insert into film(name, start_date, end_date, pg, director, stars, genre, duration, description, production)
+insert into film(name, start_date, end_date, pg, director, stars, genre, duration, description, production, img_href)
     VALUES (
       "Социальная сеть",
       "2014-01-01",
@@ -9,10 +9,11 @@ insert into film(name, start_date, end_date, pg, director, stars, genre, duratio
       "Драма",
       "01:56:00",
       "В фильме рассказывается история создания одной из самых популярных в Интернете социальных сетей — Facebook. Оглушительный успех этой сети среди пользователей по всему миру навсегда изменил жизнь студентов-однокурсников гарвардского университета, которые основали ее в 2004 году и за несколько лет стали самыми молодыми мультимиллионерами в США.",
-      "США"
+      "США",
+      "http://www.obzorkino.tv/wp-content/gallery/socialnetwork/poster.jpg"
     );
 
-insert into film(name, start_date, end_date, pg, director, stars, genre, duration, description, production)
+insert into film(name, start_date, end_date, pg, director, stars, genre, duration, description, production, img_href)
 VALUES (
   "Умница Уилл Хантинг",
   "2012-01-01",
@@ -23,5 +24,6 @@ VALUES (
   "Драма",
   "02:06:00",
   "Уилл Хантинг — 20-летний вундеркинд из Бостона, который то и дело ввязывается в неприятные истории. И когда полиция арестовывает его за очередную драку, профессор математики берет его под свою опеку, но при одном условии: Уилл должен пройти курс психотерапии. Сеансы «перевоспитания», начавшиеся с недоверия, постепенно перерастают в дружбу между Уиллом и его наставником.",
-  "США"
+  "США",
+  "https://www.film.ru/sites/default/files/movies/posters/Good-Will-Hunting-4.jpg"
 );

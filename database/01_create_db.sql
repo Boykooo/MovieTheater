@@ -9,7 +9,8 @@ CREATE TABLE film (
   genre       VARCHAR(255)  NOT NULL,
   duration    TIME          NOT NULL,
   description VARCHAR(2500) NOT NULL,
-  production  VARCHAR(250)  NOT NULL
+  production  VARCHAR(250)  NOT NULL,
+  img_href    VARCHAR(1000) NOT NULL
 ) DEFAULT CHARACTER SET=utf8;
 
 CREATE TABLE schedule (
@@ -25,3 +26,10 @@ CREATE TABLE session (
   cost INT NOT NULL
 )DEFAULT CHARACTER SET=utf8;
 
+CREATE TABLE account(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  firstname VARCHAR(255) NOT NULL,
+  lastname VARCHAR(255) NOT NULL,
+  reg_date DATE NOT NULL,
+
+) DEFAULT CHARACTER SET=utf8;

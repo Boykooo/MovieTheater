@@ -1,0 +1,18 @@
+.film {
+    text-align: center;
+    font-size: 17px;
+}
+
+.film>.panel {
+    padding: 0;
+}
+
+.details-button {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.block {
+    margin: 0;
+    padding: 0;
+}

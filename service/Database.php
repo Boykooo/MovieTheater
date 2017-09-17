@@ -13,14 +13,6 @@ class Database
 
         $conn = null;
         try {
-//            $conn = new PDO(
-//                "mysql:host=$host;dbname=$db_name;charset=utf8;",
-//                $username,
-//                $password,
-//                array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8; ")
-//            );
-//            $conn->exec("SET NAMES 'utf8'");
-
             $options = array(
                 PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8 ',
             );
