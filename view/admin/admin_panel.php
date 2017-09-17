@@ -20,7 +20,7 @@ $token = null;
 try {
     $token = $_POST["token"];
     $authController = new AuthController();
-    if(!$authController->checkCredentials($token, "ADMIN")) {
+    if (!$authController->checkCredentials($token, "ADMIN")) {
         throw new AccessDeniedException();
     }
 } catch (Exception $e) {
@@ -68,9 +68,13 @@ $films = $filmController->getLast20Films();
                 <td><?php echo $film["production"] ?></td>
                 <td><span class="limit-words"><?php echo $film["img_href"] ?></span></td>
                 <td>
-                    <button class="btn btn-primary edit-button">
-                        Edit
-                    </button>
+                    <form action="film/edit_film.php" method="post">
+                        <input type="hidden" value="<?php echo $token ?>" name="token">
+                        <input type="hidden" value="<?php echo $film["id"] ?>" name="id">
+                        <button class="btn btn-primary edit-button">
+                            Edit
+                        </button>
+                    </form>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -92,7 +96,7 @@ $films = $filmController->getLast20Films();
                 <div class="row">
                     <div class="row">
                         <div class="col-md-12" style="padding-right: 30px;">
-                            <form action="new_film.php" method="post">
+                            <form action="film/new_film.php" method="post">
                                 <div class="form-group col-md-12">
                                     <label class="col-sm-2 control-label">
                                         Name

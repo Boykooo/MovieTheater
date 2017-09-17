@@ -24,8 +24,6 @@ if ($authController->checkCredentials($token, "ADMIN")) {
         $duration, $description, $production, $img_href);
     $filmController = new FilmController();
     $filmController->createFilm($film);
-    $data = array("token" => $token);
-    //redirect_post("admin_panel.php", array("token" => $token));
 } else {
     throw new AccessDeniedException();
 };
@@ -38,7 +36,7 @@ if ($authController->checkCredentials($token, "ADMIN")) {
     <title>test</title>
 </head>
 <body>
-<form id="myform" action="admin_panel.php" method="post">
+<form id="myform" action="../admin_panel.php" method="post">
     <input type="hidden" name="token" value="<?php echo $token ?>"/>
 </form>
 <script type="text/javascript">

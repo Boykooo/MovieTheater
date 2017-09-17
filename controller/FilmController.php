@@ -28,7 +28,7 @@ class FilmController
         return $films;
     }
 
-    public function getOneFilm($id) {
+    public function findById($id) {
         $query = "select * from film where id = $id";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();

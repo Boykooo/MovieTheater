@@ -18,7 +18,7 @@ require "../controller/FilmController.php";
 <?php
 $filmController = new FilmController();
 $id = $_GET["id"];
-$film = $filmController->getOneFilm($id);
+$film = $filmController->findById($id);
 ?>
 <div class="container-fluid" style="width: 100%">
     <div class="row">
