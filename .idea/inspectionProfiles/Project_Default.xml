@@ -22,6 +22,7 @@
     <inspection_tool class="PhpIncludeInspection" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="PhpStatementHasEmptyBodyInspection" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="PhpUndefinedConstantInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PhpUndefinedVariableInspection" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="SpellCheckingInspection" enabled="false" level="TYPO" enabled_by_default="false">
       <option name="processCode" value="true" />
       <option name="processLiterals" value="true" />
@@ -29,5 +30,6 @@
     </inspection_tool>
     <inspection_tool class="SqlInsertValuesInspection" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="SqlResolveInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="XmlDefaultAttributeValue" enabled="false" level="WARNING" enabled_by_default="false" />
   </profile>
 </component>

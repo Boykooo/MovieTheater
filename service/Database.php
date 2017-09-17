@@ -10,7 +10,6 @@ class Database
         $username = "root";
         $password = "root";
 
-
         $conn = null;
         try {
             $options = array(

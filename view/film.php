@@ -27,7 +27,7 @@ $film = $filmController->getOneFilm($id);
                 <div class="panel panel-default col-md-6">
                     <div class="panel-heading"><?php echo $film['name'] ?></div>
                     <div class="panel-body">
-                        <img src="<?php echo $film["img_href"] ?>" alt="Not found" width="300" height="440"> <br/> <br/>
+                        <img src="<?php echo $film["img_href"] ?>" alt="Poster not found" width="300" height="440"> <br/> <br/>
                         Производство: <?php echo $film['production'] ?> <br/>
                         Жанр: <?php echo $film['genre'] ?> <br/>
                         Возврастное ограничение : <?php echo $film['pg'] ?> <br/>

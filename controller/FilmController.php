@@ -1,23 +1,11 @@
 <?php
-
-require_once "../service/Database.php";
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+require_once "$root/service/Database.php";
+require_once "$root/entity/Film.php";
 
 class FilmController
 {
     private $conn;
-
-    public $id;
-    public $name;
-    public $start_date;
-    public $end_date;
-    public $pg;
-    public $director;
-    public $stars;
-    public $genre;
-    public $duration;
-    public $description;
-    public $production;
-    public $img_href;
 
     public function __construct()
     {
@@ -33,22 +21,7 @@ class FilmController
         $films = array();
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
-
-            $item = array(
-                "id" => $row['id'],
-                "name" => $row['name'],
-                "start_date" => $row['start_date'],
-                "end_date" => $row['end_date'],
-                "pg" => $row['pg'],
-                "director" => $row['director'],
-                "stars" => $row['stars'],
-                "genre" => $row['genre'],
-                "duration" => $row['duration'],
-                "description" => $row['description'],
-                "production" => $row['production'],
-                "img_href" => $row['img_href']
-            );
-
+            $item =$this->buildFilm($row);
             array_push($films, $item);
         }
 
@@ -63,22 +36,62 @@ class FilmController
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         $film = null;
         if ($row != null) {
-            $film = array(
-                "id" => $row['id'],
-                "name" => $row['name'],
-                "start_date" => $row['start_date'],
-                "end_date" => $row['end_date'],
-                "pg" => $row['pg'],
-                "director" => $row['director'],
-                "stars" => $row['stars'],
-                "genre" => $row['genre'],
-                "duration" => $row['duration'],
-                "description" => $row['description'],
-                "production" => $row['production'],
-                "img_href" => $row['img_href']
-            );
+            $film = $this->buildFilm($row);
         }
 
         return $film;
+    }
+
+    public function getLast20Films() {
+        $date = date('Y-m-d', time());
+        $query = "SELECT * FROM film WHERE start_date > $date ORDER BY start_date DESC LIMIT 20;";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+
+        $films = array();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            extract($row);
+            $item =$this->buildFilm($row);
+            array_push($films, $item);
+        }
+
+        return $films;
+    }
+
+    public function buildFilm($row) {
+        return array(
+            "id" => $row['id'],
+            "name" => $row['name'],
+            "start_date" => $row['start_date'],
+            "end_date" => $row['end_date'],
+            "pg" => $row['pg'],
+            "director" => $row['director'],
+            "stars" => $row['stars'],
+            "genre" => $row['genre'],
+            "duration" => $row['duration'],
+            "description" => $row['description'],
+            "production" => $row['production'],
+            "img_href" => $row['img_href']
+        );
+    }
+
+    public function createFilm(Film $film) {
+        $query = "insert into film(name, start_date, end_date, pg, director, stars, genre, duration, description, production, img_href)
+                  VALUES (
+                  '$film->name', 
+                  '$film->start_date',
+                  '$film->end_date',
+                  '$film->pg',
+                  '$film->director',
+                  '$film->stars',
+                  '$film->genre',
+                  '$film->duration',
+                  '$film->description',
+                  '$film->production',
+                  '$film->img_href'
+                  )";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }

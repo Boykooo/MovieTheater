@@ -27,3 +27,14 @@ VALUES (
   "США",
   "https://www.film.ru/sites/default/files/movies/posters/Good-Will-Hunting-4.jpg"
 );
+
+insert into account(email, firstname, lastname, reg_date, token, role, password)
+VALUES (
+  "admin@admin.ru",
+  "admin",
+  "admin",
+  "2017-01-01",
+  "812542c4-fcdc-491c-99e5-3f4bf270431f",
+  "ADMIN",
+  "admin"
+);

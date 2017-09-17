@@ -35,7 +35,7 @@ $films = $filmController->getFilms();
                             <b>
                                 <div class="panel-heading"><?php echo $film['name'] ?></div>
                                 <div class="panel-body">
-                                    <img src="<?php echo $film["img_href"] ?>" alt="Not found" width="300" height="440">
+                                    <img src="<?php echo $film["img_href"] ?>" alt="Poster not found" width="300" height="440">
                                     <br/> <br/>
                                     Производство: <?php echo $film['production'] ?> <br/>
                                     Жанр: <?php echo $film['genre'] ?> <br/>
