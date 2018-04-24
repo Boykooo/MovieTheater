@@ -1,33 +1,31 @@
 <?php
 
-class Film
-{
-    public $id;
-    public $name;
-    public $start_date;
-    public $end_date;
-    public $pg;
-    public $director;
-    public $stars;
-    public $genre;
-    public $duration;
-    public $description;
-    public $production;
-    public $img_href;
+class Film {
+    private $id;
+    private $name;
+    private $start_date;
+    private $end_date;
+    private $pg;
+    private $director;
+    private $stars;
+    private $genre;
+    private $duration;
+    private $description;
+    private $production;
+    private $img_href;
 
-    public function __construct($id, $name, $start_date, $end_date, $pg, $director, $stars, $genre, $duration, $description, $production, $img_href)
-    {
-        $this->id = $id;
-        $this->name = $name;
-        $this->start_date = $start_date;
-        $this->end_date = $end_date;
-        $this->pg = $pg;
-        $this->director = $director;
-        $this->stars = $stars;
-        $this->genre = $genre;
-        $this->duration = $duration;
-        $this->description = $description;
-        $this->production = $production;
-        $this->img_href = $img_href;
+    public function __get($attr) {
+        if (isset($this->$attr))
+            return $this->$attr;
+        else {
+            user_error("Атрибут " . $attr . " не найден!");
+            return null;
+        }
     }
+
+    public function __set($property, $value) {
+        if (property_exists($this, $property)) {
+            $this->$property = $value;
+        }
     }
+}

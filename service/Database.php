@@ -1,26 +1,15 @@
 <?php
 
-class Database
-{
-    // get the database connection
-    public static function getConnection()
-    {
-        $host = "localhost";
-        $db_name = "movietheater";
-        $username = "root";
-        $password = "root";
+class Database {
 
+    public static function getConnection() {
+        $config = include($_SERVER["DOCUMENT_ROOT"] . "/config.php");
         $conn = null;
         try {
-            $options = array(
-                PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8 ',
-            );
-
-            $conn = new PDO("mysql:host=$host;dbname=$db_name;", $username, $password, $options);
+            $conn = new PDO("mysql:host=" . $config['host'] . ";dbname=" . $config['name'] . ";", $config['user'], $config['pass'], $config['options']);
         } catch (PDOException $exception) {
             echo "Connection error: " . $exception->getMessage();
         }
-
         return $conn;
     }
 }
