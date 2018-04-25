@@ -1,35 +1,44 @@
+<?php
+require "../../../controller/FilmController.php";
+$filmController = new FilmController();
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if (array_key_exists("back", $_POST)) {
+        header('Location: ../admin_panel.php');
+        exit;
+    } else if ($_POST["id"] != "") {
+        $film = new Film();
+        $film->id = $_POST["id"];
+        $film->name = $_POST["name"];
+        $film->start_date = $_POST["start_date"];
+        $film->end_date = $_POST["end_date"];
+        $film->pg = $_POST["pg"];
+        $film->director = $_POST["director"];
+        $film->stars = $_POST["stars"];
+        $film->genre = $_POST["genre"];
+        $film->duration = $_POST["duration"];
+        $film->description = $_POST["description"];
+        $film->production = $_POST["production"];
+        $film->img_href = $_POST["img_href"];
+
+        $filmController->updateFilm($film);
+        header('Location: ../admin_panel.php');
+        exit;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <title>Welcome page</title>
-
-    <script src="/view/static/js/jquery-3.2.1.min.js"></script>
-    <script src="/view/static/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/view/static/css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="/view/static/css/common.css">
 </head>
 <body>
 <?php
 require "../../templates/header.html";
-require "../../../controller/FilmController.php";
-require_once "../../../controller/AuthController.php";
-?>
-<?php
-$token = null;
-try {
-    $token = $_POST["token"];
-    $authController = new AuthController();
-    if (!$authController->checkCredentials($token, "ADMIN")) {
-        throw new AccessDeniedException();
-    }
-    $id = $_POST["id"];
-    $filmController = new FilmController();
-    $film = $filmController->findById($id);
 
-} catch (Exception $e) {
-    header("Location: ../login.php");
-}
+$id = $_GET["id"];
+$film = $filmController->findById($id);
 ?>
 <div class="container-fluid" style="width: 100%">
     <div class="row">
@@ -38,7 +47,8 @@ try {
                 <div class="panel panel-default col-md-6">
                     <div class="panel-heading"><?php echo $film->name ?></div>
                     <div class="panel-body">
-                        <form action="edit_film.php?id=<?php echo $film->id ?>" method="post">
+                        <form action="edit.php" method="POST">
+                            <input type="hidden" name="id" value="<?php echo $film->id; ?>"/>
                             <div class="form-group col-md-12">
                                 <label for="name" class="col-sm-2 control-label">Name</label>
                                 <div class="col-sm-4">
@@ -117,9 +127,11 @@ try {
                                            class="form-control" value="<?php echo $film->img_href ?>"/>
                                 </div>
                             </div>
-                            <input type="hidden" value="<?php echo $token ?>" name="token">
                             <div class="form-group col-md-12">
-                                <button class="btn btn-primary edit-button">Update</button>
+                                <button class="btn btn-primary edit-button" name="update">Update</button>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <button class="btn btn-primary edit-button" name="back">Back</button>
                             </div>
                         </form>
                     </div>

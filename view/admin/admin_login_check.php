@@ -26,5 +26,3 @@ $token = $authController->login($email, $password);
 </script>
 </body>
 </html>
-
-

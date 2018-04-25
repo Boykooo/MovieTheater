@@ -1,38 +1,14 @@
+<?php
+require "../templates/header.html";
+require "../../controller/FilmController.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <title>Movie Theater</title>
-
-    <script src="../static/js/jquery-3.2.1.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../static/css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/css/common.css">
 </head>
 <body>
-
-<?php
-require "../templates/header.html";
-require "../../controller/FilmController.php";
-require_once "../../controller/AuthController.php";
-?>
-
-<?php
-$token = null;
-try {
-    $token = $_POST["token"];
-    $authController = new AuthController();
-    if (!$authController->checkCredentials($token, "ADMIN")) {
-        throw new AccessDeniedException();
-    }
-} catch (Exception $e) {
-    header("Location: login.php");
-}
-
-$filmController = new FilmController();
-$films = $filmController->getFilms();
-?>
-
 <div class="container">
     <button class="btn btn-primary edit-button" data-toggle="modal" data-target="#newFilm">New Film</button>
     <h2>Films</h2>
@@ -51,9 +27,13 @@ $films = $filmController->getFilms();
             <th>Production</th>
             <th>Img href</th>
             <th></th>
+            <th></th>
         </tr>
         </thead>
-        <?php foreach ($films as $film): ?>
+        <?php
+        $filmController = new FilmController();
+        $films = $filmController->getFilms();
+        foreach ($films as $film):?>
             <tr class="th-limit-words" style="overflow: hidden">
                 <td><?php echo $film->name ?></td>
                 <td><?php echo $film->start_date ?></td>
@@ -67,12 +47,15 @@ $films = $filmController->getFilms();
                 <td><?php echo $film->production ?></td>
                 <td><span class="limit-words"><?php echo $film->img_href ?></span></td>
                 <td>
-                    <form action="film/edit_film.php" method="post">
-                        <input type="hidden" value="<?php echo $token ?>" name="token">
+                    <form action="film/edit.php" method="GET">
                         <input type="hidden" value="<?php echo $film->id ?>" name="id">
-                        <button class="btn btn-primary edit-button">
-                            Edit
-                        </button>
+                        <button class="btn btn-primary edit-button">Edit</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="film/delete.php" method="POST">
+                        <input type="hidden" value="<?php echo $film->id ?>" name="id">
+                        <button class="btn btn-primary delete-button">Delete</button>
                     </form>
                 </td>
             </tr>
@@ -90,7 +73,7 @@ $films = $filmController->getFilms();
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12" style="padding-right: 30px;">
-                        <form action="film/new_film.php" method="post">
+                        <form action="film/new.php" method="post">
                             <div class="form-group col-md-12">
                                 <label for="name" class="col-sm-2 control-label">Name</label>
                                 <div class="col-sm-4">
@@ -167,7 +150,6 @@ $films = $filmController->getFilms();
                                            class="form-control"/>
                                 </div>
                             </div>
-                            <input type="hidden" value="<?php echo $token ?>" name="token">
                             <div class="form-group col-md-12">
                                 <button class="btn btn-primary edit-button">Send</button>
                             </div>
