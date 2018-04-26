@@ -1,5 +1,5 @@
 <?php
-include "templates/header.html";
+include "templates/header.php";
 include "../controller/FilmController.php";
 ?>
 <!DOCTYPE html>

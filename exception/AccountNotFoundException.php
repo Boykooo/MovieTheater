@@ -1,5 +1,4 @@
 <?php
 
-class AccountNotFoundException extends Exception
-{
+class AccountNotFoundException extends Exception {
 }

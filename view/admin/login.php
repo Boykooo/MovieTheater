@@ -11,7 +11,7 @@
 </head>
 <body>
 <?php
-require "../templates/header.html";
+require "../templates/header.php";
 require "../../controller/FilmController.php";
 ?>
 

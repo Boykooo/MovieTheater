@@ -1,5 +1,8 @@
 <?php
-require "../templates/header.html";
+session_start();
+include($_SERVER["DOCUMENT_ROOT"] . "/shared/authenticate.php");
+
+require "../templates/header.php";
 require "../../controller/FilmController.php";
 ?>
 <!DOCTYPE html>
