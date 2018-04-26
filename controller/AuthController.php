@@ -9,7 +9,6 @@ require_once "$root/entity/Account.php";
 class AuthController {
 
     private $tokenKey = 'Auth-Token';
-    private $conn;
 
     public function login() {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -30,11 +29,6 @@ class AuthController {
         } else {
             $_SESSION[$this->tokenKey] = $account->token;
         }
-    }
-
-    public function checkCredentials($token, $role) {
-        $account = $this->findByToken($token);
-        return $account["role"] == $role;
     }
 
     private function findByToken($token) {
