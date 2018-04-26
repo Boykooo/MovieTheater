@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<?php include "templates/header.html"; ?>
+<?php include "templates/header.php"; ?>
 <?php include "../controller/FilmController.php"; ?>
 
 <?php

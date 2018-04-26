@@ -1,4 +1,7 @@
 <?php
+session_start();
+include($_SERVER["DOCUMENT_ROOT"] . "/shared/authenticate.php");
+
 require "../../../controller/FilmController.php";
 $filmController = new FilmController();
 
@@ -35,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 </head>
 <body>
 <?php
-require "../../templates/header.html";
+require "../../templates/header.php";
 
 $id = $_GET["id"];
 $film = $filmController->findById($id);
