@@ -5,12 +5,6 @@ require_once "$root/entity/Film.php";
 
 class FilmController {
 
-    private $conn;
-
-    public function __construct() {
-        $this->conn = Database::getConnection();
-    }
-
     public function getFilms() {
         $connection = Database::getConnection();
         $statement = $connection->prepare('SELECT * FROM film');

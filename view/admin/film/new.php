@@ -36,5 +36,3 @@ $filmController->createFilm($film);
 </script>
 </body>
 </html>
-
-

@@ -64,7 +64,7 @@ class AuthController {
 
     public function logout() {
         $this->destroySession();
-        header("Location: /view/welcome.php");
+        header("Location: /MovieTheater/view/welcome.php");
     }
 
 }

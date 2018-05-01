@@ -14,6 +14,17 @@ CREATE TABLE film (
 )
   DEFAULT CHARACTER SET = utf8;
 
+CREATE TABLE event (
+  id          INT PRIMARY KEY AUTO_INCREMENT,
+  name        VARCHAR(255)  NOT NULL,
+  date        DATE          NOT NULL,
+  time        TIME          NOT NULL,
+  duration    TIME          NOT NULL,
+  description VARCHAR(2500) NOT NULL,
+  img_href    VARCHAR(1000) NOT NULL
+)
+  DEFAULT CHARACTER SET = utf8;
+
 CREATE TABLE schedule (
   id      INT PRIMARY KEY AUTO_INCREMENT,
   film_id INT  NOT NULL,

@@ -11,7 +11,7 @@ include "../controller/FilmController.php";
 <body>
 <div class="container-fluid block">
     <div class="row">
-        <div class=" col-md-2">Events</div>
+        <div class=" col-md-2"></div>
         <div class=" col-md-10">
             <div>
                 <h3>Фильмы в прокате</h3>
