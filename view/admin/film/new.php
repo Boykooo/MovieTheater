@@ -123,7 +123,6 @@ require "../../templates/header.php";
                                            class="form-control" required/>
                                 </div>
                             </div>
-
                             <div class="form-group col-md-10">
                                 <button class="btn btn-primary edit-button" name="add">Add</button>
                                 <button class="btn btn-primary edit-button" name="cancel" formnovalidate>Cancel</button>
@@ -135,6 +134,5 @@ require "../../templates/header.php";
         </div>
     </div>
 </div>
-
 </body>
 </html>

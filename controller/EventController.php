@@ -27,7 +27,7 @@ class EventController {
     public function createEvent(Event $event) {
         $connection = Database::getConnection();
         $statement = $connection->prepare('INSERT INTO event(name, date, time, duration, description, img_href)
-            VALUES (:name, _date, :time, :duration, :description, :img_href)');
+            VALUES (:name, :date, :time, :duration, :description, :img_href)');
         $statement->execute(array(
             'name' => $event->name,
             'date' => $event->date,
@@ -52,6 +52,7 @@ class EventController {
         $statement->execute(array(
             'name' => $event->name,
             'date' => $event->date,
+            'time' => $event->time,
             'duration' => $event->duration,
             'description' => $event->description,
             'img_href' => $event->img_href,

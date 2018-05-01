@@ -143,6 +143,5 @@ $film = $filmController->findById($id);
         </div>
     </div>
 </div>
-
 </body>
 </html>

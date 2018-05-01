@@ -1,6 +1,5 @@
 <?php
 
-
 class Event {
 
     private $id;
@@ -15,7 +14,7 @@ class Event {
         if (isset($this->$attr))
             return $this->$attr;
         else {
-            user_error("Атрибут " . $attr . " не найден!");
+            user_error("Attribute '" . $attr . "' is not found!");
             return null;
         }
     }
