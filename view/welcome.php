@@ -9,47 +9,47 @@ include "../controller/FilmController.php";
     <title>Movie Theater</title>
 </head>
 <body>
-<div class="container-fluid block">
-    <div class="row">
-        <div class=" col-md-2"></div>
-        <div class=" col-md-10">
-            <div>
-                <h3>Фильмы в прокате</h3>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100" src="static/image/1.jpeg" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h1>Уютные залы</h1>
             </div>
-            <div class="container block col-md-12" style="margin-top: 10px">
-                <?php
-                $filmController = new FilmController();
-                $films = $filmController->getFilms();
-                foreach ($films as $film): ?>
-                    <div class="film">
-                        <div class="panel panel-default col-md-5">
-                            <b>
-                                <div class="panel-heading"><?php echo $film->name ?></div>
-                                <div class="panel-body">
-                                    <img src="<?php echo $film->img_href ?>" alt="Poster not found" width="300"
-                                         height="440">
-                                    <br/> <br/>
-                                    Производство: <?php echo $film->production ?> <br/>
-                                    Жанр: <?php echo $film->genre ?> <br/>
-                                    Возврастное ограничение : <?php echo $film->pg ?> <br/>
-                                    Режиссер: <?php echo $film->director ?> <br/>
-                                    Продолжительность: <?php echo $film->duration ?> <br/>
-                                    В прокате до: <?php echo $film->end_date ?> <br/>
-                                    <form action="film.php" method="GET">
-                                        <input type="hidden" name="id" value="<?php echo $film->id ?>">
-                                        <button class="btn btn-primary details-button">Подробнее</button>
-                                    </form>
-                                </div>
-                            </b>
-                        </div>
-                        <div class="col-md-1"></div>
-                    </div>
-                <?php endforeach; ?>
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="static/image/2.jpeg" alt="Second slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h1>Новинки кино</h1>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="static/image/3.jpeg" alt="Third slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h1>Современный дизайн</h1>
             </div>
         </div>
     </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
 </div>
-
+<div class="jumbotron">
+    <h1 class="display-4">Добро пожаловать!</h1>
+    <p class="lead">Встречайте, новый современный кинотеатр уже в вашем городе.</p>
+    <hr class="my-4">
+    <p>У нас вы найдете не только новинки современного кино, но и фестивальные работы, кино знакомое с детства и различные мероприятия.</p>
+</div>
 </body>
 </html>
 

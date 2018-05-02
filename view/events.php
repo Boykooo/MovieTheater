@@ -9,42 +9,38 @@ include "../controller/EventController.php";
     <title>Events</title>
 </head>
 <body>
-<div class="container-fluid block">
-    <div class="row">
-        <div class=" col-md-2"></div>
-        <div class=" col-md-10">
-            <div>
-                <h3>События</h3>
-            </div>
-            <div class="container block col-md-12" style="margin-top: 10px">
-                <?php
-                $eventController = new EventController();
-                $events = $eventController->getEvents();
-                foreach ($events as $event): ?>
-                    <div class="film">
-                        <div class="panel panel-default col-md-5">
-                            <b>
-                                <div class="panel-heading"><?php echo $event->name ?></div>
-                                <div class="panel-body">
-                                    <img src="<?php echo $event->img_href ?>" alt="Poster not found" width="300"
-                                         height="440">
-                                    <br/> <br/>
+<div class="container">
+    <div>
+        <h3>События</h3>
+    </div>
+    <hr class="my-4">
+    <div class="col-md-12">
+        <div class="row">
+            <?php
+            $eventController = new EventController();
+            $events = $eventController->getEvents();
+            foreach ($events as $event): ?>
+                <div class="col-sm-4">
+                    <div class="card text-center mb-3">
+                        <img class="card-img-top" src="<?php echo $event->img_href ?>">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $event->name ?></h5>
+                            <div class="card-text">
+                                <b>
                                     Дата: <?php echo $event->date ?> <br/>
                                     Время: <?php echo $event->time ?> <br/>
                                     <form action="event.php" method="GET">
                                         <input type="hidden" name="id" value="<?php echo $event->id ?>">
                                         <button class="btn btn-primary details-button">Подробнее</button>
                                     </form>
-                                </div>
-                            </b>
+                                </b>
+                            </div>
                         </div>
-                        <div class="col-md-1"></div>
                     </div>
-                <?php endforeach; ?>
-            </div>
+                </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>
-
 </body>
 </html>

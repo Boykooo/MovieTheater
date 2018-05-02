@@ -34,63 +34,53 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 <?php
 require "../../templates/header.php";
 ?>
-<div class="container-fluid" style="width: 100%">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="film">
-                <div class="panel panel-default col-md-6">
-                    <div class="panel-body">
-                        <form action="new.php" method="POST">
-                            <div class="form-group col-md-12">
-                                <label for="name" class="col-sm-2 control-label text-right">Name *</label>
-                                <div class="col-sm-4">
-                                    <input type="text" name="name" id="name" placeholder="Name" class="form-control"
-                                           required/>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="date" class="col-sm-2 control-label text-right">Date *</label>
-                                <div class="col-sm-4">
-                                    <input type="date" name="date" id="date" class="form-control" required/>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="time" class="col-sm-2 control-label text-right">Time *</label>
-                                <div class="col-sm-4">
-                                    <input type="time" name="time" id="time" class="form-control" required/>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="duration" class="col-sm-2 control-label text-right">Duration *</label>
-                                <div class="col-sm-4">
-                                    <input type="time" name="duration" id="duration" class="form-control" required/>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="description" class="col-sm-2 control-label text-right">Description *</label>
-                                <div class="col-sm-4">
+<form action="new.php" method="POST">
+    <div class="form-group row">
+        <label for="name" class="col-sm-1 control-label text-right">Name</label>
+        <div class="col-sm-2">
+            <input type="text" name="name" id="name" placeholder="Name" class="form-control"
+                   required/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="date" class="col-sm-1 control-label text-right">Date</label>
+        <div class="col-sm-2">
+            <input type="date" name="date" id="date" class="form-control" required/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="time" class="col-sm-1 control-label text-right">Time</label>
+        <div class="col-sm-2">
+            <input type="time" name="time" id="time" class="form-control" required/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="duration" class="col-sm-1 control-label text-right">Duration</label>
+        <div class="col-sm-2">
+            <input type="time" name="duration" id="duration" class="form-control" required/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="description" class="col-sm-1 control-label text-right">Description</label>
+        <div class="col-sm-2">
                                 <textarea name="description" id="description" cols="33" rows="6"
                                           placeholder="Description"
                                           class="form-control" required></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="img_href" class="col-sm-2 control-label text-right">Image Link *</label>
-                                <div class="col-sm-4">
-                                    <input type="url" name="img_href" id="img_href" placeholder="Image link"
-                                           class="form-control" required/>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-10">
-                                <button class="btn btn-primary edit-button" name="add">Add</button>
-                                <button class="btn btn-primary edit-button" name="cancel" formnovalidate>Cancel</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
-</div>
+    <div class="form-group row">
+        <label for="img_href" class="col-sm-1 control-label text-right">Image Link</label>
+        <div class="col-sm-2">
+            <input type="url" name="img_href" id="img_href" placeholder="Image link"
+                   class="form-control" required/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-3 text-right">
+            <button class="btn btn-primary edit-button" name="add">Add</button>
+            <button class="btn btn-primary edit-button" name="cancel" formnovalidate>Cancel</button>
+        </div>
+    </div>
+</form>
 </body>
 </html>
