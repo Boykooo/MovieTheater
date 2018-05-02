@@ -17,7 +17,7 @@ include "../controller/EventController.php";
         <div class="row">
             <?php
             $eventController = new EventController();
-            $events = $eventController->getEvents();
+            $events = $eventController->getActualEvents();
             foreach ($events as $event): ?>
                 <div class="col-sm-4">
                     <div class="card text-center mb-3">

@@ -67,4 +67,13 @@ class EventController {
         $statement->execute(array('id' => $id));
         $connection = null;
     }
+
+    public function getActualEvents() {
+        $connection = Database::getConnection();
+        $statement = $connection->prepare('SELECT * FROM event WHERE date >= CURDATE() and time >= CURTIME() ORDER BY date, time');
+        $statement->execute();
+        $events = $statement->fetchAll(PDO::FETCH_CLASS, 'Event');
+        $connection = null;
+        return $events;
+    }
 }

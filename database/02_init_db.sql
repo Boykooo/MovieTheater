@@ -53,7 +53,7 @@ VALUES (
 
 INSERT INTO event(name, date, time, duration, description, img_href)
 VALUES (
-  "Фильм-выставка КАРАВАДЖО: ДУША И КРОВЬ",
+  "КАРАВАДЖО: ДУША И КРОВЬ",
   "2018-07-22",
   "19:00:00",
   "01:35:00",

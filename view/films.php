@@ -17,7 +17,7 @@ include "../controller/FilmController.php";
         <div class="row">
             <?php
             $filmController = new FilmController();
-            $films = $filmController->getFilms();
+            $films = $filmController->getActualFilms();
             foreach ($films as $film): ?>
                 <div class="col-sm-4">
                     <div class="card text-center mb-3">

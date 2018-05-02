@@ -82,4 +82,13 @@ class FilmController {
         $statement->execute(array('id' => $id));
         $connection = null;
     }
+
+    public function getActualFilms() {
+        $connection = Database::getConnection();
+        $statement = $connection->prepare('SELECT * FROM film WHERE end_date >= CURDATE() ORDER BY start_date DESC');
+        $statement->execute();
+        $films = $statement->fetchAll(PDO::FETCH_CLASS, 'Film');
+        $connection = null;
+        return $films;
+    }
 }
