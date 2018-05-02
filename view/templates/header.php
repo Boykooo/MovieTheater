@@ -39,9 +39,6 @@ $isAuthenticated = $authController->isAuthenticated();
                 <a class="nav-link" href="#">О нас</a>
             </li>
         </ul>
-        <ul class="navbar-nav">
-            <a class="navbar-brand" href="/MovieTheater/view/events.php">События</a>
-        </ul>
         <ul class="navbar-nav ml-auto" style="margin-right: 20px">
             <?php if ($isAuthenticated) : ?>
                 <li class="dropdown">
