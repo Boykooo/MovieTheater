@@ -2,12 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>Welcome page</title>
-
-    <script src="../static/js/jquery-3.2.1.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../static/css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/css/common.css">
+    <title>Login</title>
 </head>
 <body>
 <?php
