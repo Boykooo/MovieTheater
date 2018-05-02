@@ -38,69 +38,57 @@ require "../../templates/header.php";
 $id = $_GET["id"];
 $event = $eventController->findById($id);
 ?>
-<div class="container-fluid" style="width: 100%">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="film">
-                <div class="panel panel-default col-md-6">
-                    <div class="panel-heading"><?php echo $event->name ?></div>
-                    <div class="panel-body">
-                        <form action="edit.php" method="POST">
-                            <input type="hidden" name="id" value="<?php echo $event->id; ?>"/>
-                            <div class="form-group col-md-12">
-                                <label for="name" class="col-sm-2 control-label">Name</label>
-                                <div class="col-sm-4">
-                                    <input type="text" name="name" id="name" placeholder="Name"
-                                           class="form-control" value="<?php echo $event->name ?>" required/>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="date" class="col-sm-2 control-label">Date</label>
-                                <div class="col-sm-4">
-                                    <input type="date" name="date" id="date" placeholder="YYYY-MM-DD"
-                                           class="form-control" value="<?php echo $event->date ?>" required/>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="time" class="col-sm-2 control-label">Time</label>
-                                <div class="col-sm-4">
-                                    <input type="time" name="time" id="time" placeholder="YYYY-MM-DD"
-                                           class="form-control" value="<?php echo $event->time ?>" required/>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="duration" class="col-sm-2 control-label">Duration</label>
-                                <div class="col-sm-4">
-                                    <input type="time" name="duration" id="duration" placeholder="HH:MM:SS"
-                                           class="form-control" value="<?php echo $event->duration ?>" required/>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="description" class="col-sm-2 control-label">Description</label>
-                                <div class="col-sm-4">
+<form action="edit.php" method="POST">
+    <input type="hidden" name="id" value="<?php echo $event->id; ?>"/>
+    <div class="form-group row">
+        <label for="name" class="col-sm-1 control-label text-right">Name</label>
+        <div class="col-sm-2">
+            <input type="text" name="name" id="name" placeholder="Name"
+                   class="form-control" value="<?php echo $event->name ?>" required/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="date" class="col-sm-1 control-label text-right">Date</label>
+        <div class="col-sm-2">
+            <input type="date" name="date" id="date" placeholder="YYYY-MM-DD"
+                   class="form-control" value="<?php echo $event->date ?>" required/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="time" class="col-sm-1 control-label text-right">Time</label>
+        <div class="col-sm-2">
+            <input type="time" name="time" id="time" placeholder="YYYY-MM-DD"
+                   class="form-control" value="<?php echo $event->time ?>" required/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="duration" class="col-sm-1 control-label text-right">Duration</label>
+        <div class="col-sm-2">
+            <input type="time" name="duration" id="duration" placeholder="HH:MM:SS"
+                   class="form-control" value="<?php echo $event->duration ?>" required/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="description" class="col-sm-1 control-label text-right">Description</label>
+        <div class="col-sm-2">
                                 <textarea name="description" id="description" cols="33" rows="6"
                                           placeholder="Description"
                                           class="form-control" required><?php echo $event->description ?></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="img_href" class="col-sm-2 control-label">Image link</label>
-                                <div class="col-sm-4">
-                                    <input type="text" name="img_href" id="img_href" placeholder="Image link"
-                                           class="form-control" value="<?php echo $event->img_href ?>" required/>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-10">
-                                <button class="btn btn-primary edit-button" name="update">Update</button>
-                                <button class="btn btn-primary edit-button" name="cancel">Back</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-md-1"></div>
-            </div>
         </div>
     </div>
-</div>
+    <div class="form-group row">
+        <label for="img_href" class="col-sm-1 control-label text-right">Image link</label>
+        <div class="col-sm-2">
+            <input type="text" name="img_href" id="img_href" placeholder="Image link"
+                   class="form-control" value="<?php echo $event->img_href ?>" required/>
+        </div>
+    </div>
+    <div class="fform-group row">
+        <div class="col-sm-3 text-right">
+            <button class="btn btn-primary edit-button" name="update">Update</button>
+            <button class="btn btn-primary edit-button" name="cancel" formnovalidate>Cancel</button>
+        </div>
+    </div>
+</form>
 </body>
 </html>
