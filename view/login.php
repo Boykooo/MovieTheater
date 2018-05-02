@@ -1,22 +1,23 @@
+<?php
+session_start();
+require_once "../controller/AuthController.php";
+$authController = new AuthController();
+$isAuthenticated = $authController->isAuthenticated();
+if ($isAuthenticated) {
+    header("Location: /MovieTheater/view/personal_area.php");
+}
+include "templates/header.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>Welcome page</title>
-
-    <script src="../static/js/jquery-3.2.1.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../static/css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/css/common.css">
+    <title>Вход в личный кабинет</title>
 </head>
 <body>
-<?php
-require "../templates/header.php";
-require "../../controller/FilmController.php";
-?>
 
 <div class="container" style="margin-left: 20px">
-    <form action="admin_login_check.php" method="post">
+    <form action="login_check.php" method="post">
         <div class="row form-group">
             <label for="email" class="col-sm-2" style="padding: 0">
                 Email

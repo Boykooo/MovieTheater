@@ -18,7 +18,7 @@ class FilmController {
         $connection = Database::getConnection();
         $statement = $connection->prepare('SELECT * FROM film WHERE id = :id');
         $statement->execute(array('id' => $id));
-        $statement->setFetchMode(PDO::FETCH_CLASS, 'Film');
+        $statement->setFetchMode(PDO::FETCH_CLASS,  'Film');
         $film = $statement->fetch();
         $connection = null;
         return $film;

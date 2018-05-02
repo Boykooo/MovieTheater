@@ -1,6 +1,6 @@
 <?php
 session_start();
-include($_SERVER["DOCUMENT_ROOT"] . "/shared/authenticate.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/shared/admin_authenticate.php");
 
 require "../templates/header.php";
 require "../../controller/FilmController.php";

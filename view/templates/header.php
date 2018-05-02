@@ -3,10 +3,7 @@ $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 require_once "$root/controller/AuthController.php";
 $authController = new AuthController();
 $isAuthenticated = $authController->isAuthenticated();
-$signActionUrl = $isAuthenticated ? '/MovieTheater/shared/logout.php'  : '#';
-$signActionName = $isAuthenticated ? 'Выйти' : 'Войти';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,11 +27,24 @@ $signActionName = $isAuthenticated ? 'Выйти' : 'Войти';
             <a class="navbar-brand" href="/MovieTheater/view/events.php">События</a>
         </ul>
         <ul class="nav navbar-nav navbar-right" style="margin-right: 20px">
-            <li>
-                <a href="<?php echo $signActionUrl?>">
-                    <?php echo $signActionName ?>
-                </a>
-            </li>
+            <?php if ($isAuthenticated) : ?>
+                <li class="dropdown">
+                    <a id="drop1" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Личный кабинет
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/MovieTheater/view/personal_area.php">Профиль</a></li>
+                        <li><a href="/MovieTheater/shared/logout.php">Выйти</a></li>
+                    </ul>
+                </li>
+            <?php else : ?>
+                <li>
+                    <a href="/MovieTheater/view/login.php">
+                        Войти
+                    </a>
+                </li>
+            <?php endif; ?>
         </ul>
     </div>
 </nav>
