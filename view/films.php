@@ -11,9 +11,7 @@ include "../controller/FilmController.php";
 </head>
 <body>
 <div class="container">
-    <div>
-        <h3>Фильмы в прокате</h3>
-    </div>
+    <h3>Фильмы в прокате</h3>
     <hr class="my-4">
     <div class="col-md-12">
         <div class="row">

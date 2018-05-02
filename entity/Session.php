@@ -5,6 +5,7 @@ class Session {
 
     private $id;
     private $date;
+    private $time;
     private $film_id;
     private $hall_id;
 

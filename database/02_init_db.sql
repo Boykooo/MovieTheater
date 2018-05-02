@@ -1,19 +1,19 @@
-insert into film(name, start_date, end_date, pg, director, stars, genre, duration, description, production, img_href)
-    VALUES (
-      "Социальная сеть",
-      "2014-01-01",
-      "2020-01-01",
-      12,
-      "Дэвид Финчер",
-      "Джесси Айзенберг, Эндрю Гарфилд, Джастин Тимберлэйк, Арми Хаммер, Макс Мингелла, Рашида Джонс, Бренда Сонг, Руни Мара, Брайан Бартер, Джозеф Маццелло",
-      "Драма",
-      "01:56:00",
-      "В фильме рассказывается история создания одной из самых популярных в Интернете социальных сетей — Facebook. Оглушительный успех этой сети среди пользователей по всему миру навсегда изменил жизнь студентов-однокурсников гарвардского университета, которые основали ее в 2004 году и за несколько лет стали самыми молодыми мультимиллионерами в США.",
-      "США",
-      "http://www.obzorkino.tv/wp-content/gallery/socialnetwork/poster.jpg"
-    );
+INSERT INTO film(name, start_date, end_date, pg, director, stars, genre, duration, description, production, img_href)
+VALUES (
+  "Социальная сеть",
+  "2014-01-01",
+  "2020-01-01",
+  12,
+  "Дэвид Финчер",
+  "Джесси Айзенберг, Эндрю Гарфилд, Джастин Тимберлэйк, Арми Хаммер, Макс Мингелла, Рашида Джонс, Бренда Сонг, Руни Мара, Брайан Бартер, Джозеф Маццелло",
+  "Драма",
+  "01:56:00",
+  "В фильме рассказывается история создания одной из самых популярных в Интернете социальных сетей — Facebook. Оглушительный успех этой сети среди пользователей по всему миру навсегда изменил жизнь студентов-однокурсников гарвардского университета, которые основали ее в 2004 году и за несколько лет стали самыми молодыми мультимиллионерами в США.",
+  "США",
+  "http://www.obzorkino.tv/wp-content/gallery/socialnetwork/poster.jpg"
+);
 
-insert into film(name, start_date, end_date, pg, director, stars, genre, duration, description, production, img_href)
+INSERT INTO film(name, start_date, end_date, pg, director, stars, genre, duration, description, production, img_href)
 VALUES (
   "Умница Уилл Хантинг",
   "2012-01-01",
@@ -28,7 +28,7 @@ VALUES (
   "https://www.film.ru/sites/default/files/movies/posters/Good-Will-Hunting-4.jpg"
 );
 
-insert into account(email, firstname, lastname, reg_date, token, role, password)
+INSERT INTO account(email, firstname, lastname, reg_date, token, role, password)
 VALUES (
   "admin@admin.ru",
   "admin",
@@ -39,7 +39,7 @@ VALUES (
   "admin"
 );
 
-insert into event(name, date, time, duration, description, img_href)
+INSERT INTO event(name, date, time, duration, description, img_href)
 VALUES (
   "Стендап Данилы Поперечного",
   "2018-04-30",
@@ -51,7 +51,7 @@ VALUES (
   "https://pp.userapi.com/c847121/v847121264/33614/uvw7wuRUow0.jpg"
 );
 
-insert into event(name, date, time, duration, description, img_href)
+INSERT INTO event(name, date, time, duration, description, img_href)
 VALUES (
   "Фильм-выставка КАРАВАДЖО: ДУША И КРОВЬ",
   "2018-07-22",
@@ -60,3 +60,17 @@ VALUES (
   "«Караваджо: Душа и кровь» — увлекательный фильм-выставка, посвящённый творчеству и судьбе великого художника Микеланджело Меризи да Караваджо. Повествование в фильме ведётся из крупнейших музеев Италии, где собрана уникальная коллекция работ реформатора. В ленте представлены картины «Мальчик, укушенный ящерицей», «Больной Вакх», «Призвание апостола Матфея», «Юдифь и Олоферн», «Медуза», «Давид с головой Голиафа», «Семь деяний милосердия». При этом создатели фильма не только раскрывают тайны творчества Караваджо, но также ярко иллюстрируют ключевые моменты биографии великого художника, который навсегда изменил историю европейского искусства.",
   "https://scontent-frt3-2.cdninstagram.com/vp/b3411585e17d956258350015b497849e/5B4DF9A4/t51.2885-15/e35/27880254_1595519680564080_3851489932455444480_n.jpg"
 );
+
+INSERT INTO hall(name, seat_count)
+VALUES ("зал 1", 12);
+
+INSERT INTO session(date, time, film_id, hall_id)
+VALUES ("2018-04-30", "10:00:00", 1, 1);
+INSERT INTO session(date, time, film_id, hall_id)
+VALUES ("2018-04-30", "13:00:00", 1, 1);
+INSERT INTO session(date, time, film_id, hall_id)
+VALUES ("2018-04-30", "16:00:00", 1, 1);
+INSERT INTO session(date, time, film_id, hall_id)
+VALUES ("2018-04-30", "19:00:00", 1, 1);
+INSERT INTO session(date, time, film_id, hall_id)
+VALUES ("2018-04-30", "22:00:00", 1, 1);

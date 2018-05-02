@@ -43,7 +43,8 @@ CREATE TABLE hall (
 
 CREATE TABLE session (
   id          INT PRIMARY KEY AUTO_INCREMENT,
-  date        DATETIME      NOT NULL,
+  date        DATE          NOT NULL,
+  time        TIME          NOT NULL,
   film_id     INT           NOT NULL,
   hall_id     INT           NOT NULL
 ) DEFAULT CHARACTER SET = utf8;

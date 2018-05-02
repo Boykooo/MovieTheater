@@ -27,10 +27,11 @@ class SessionController {
 
     public function createSession(Session $session) {
         $connection = Database::getConnection();
-        $statement = $connection->prepare('INSERT INTO session(date, film_id, hall_id)
-            VALUES (:date, :film_id, hall_id)');
+        $statement = $connection->prepare('INSERT INTO session(date, time, film_id, hall_id)
+            VALUES (:date, :time, :film_id, hall_id)');
         $statement->execute(array(
             'date' => $session->date,
+            'time' => $session->time,
             'film_id' => $session->film_id,
             'hall_id' => $session->hall_id
         ));
@@ -41,11 +42,13 @@ class SessionController {
         $connection = Database::getConnection();
         $statement = $connection->prepare('UPDATE session SET 
             date = :date,
+            time = :time,
             film_id = :film_id,
             hall_id = :hall_id
             WHERE id = :id');
         $statement->execute(array(
             'date' => $session->date,
+            'time' => $session->time,
             'film_id' => $session->film_id,
             'hall_id' => $session->hall_id,
             'id' => $session->id
@@ -58,5 +61,14 @@ class SessionController {
         $statement = $connection->prepare('DELETE FROM session WHERE id = :id');
         $statement->execute(array('id' => $id));
         $connection = null;
+    }
+
+    public function findByFilmId($film_id) {
+        $connection = Database::getConnection();
+        $statement = $connection->prepare('SELECT * FROM session WHERE film_id = :film_id');
+        $statement->execute(array('film_id' => $film_id));
+        $sessions = $statement->fetchAll(PDO::FETCH_CLASS, 'Session');
+        $connection = null;
+        return $sessions;
     }
 }
