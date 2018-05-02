@@ -1,15 +1,10 @@
 <?php
 
 
-class Event {
-
+class Ticket {
     private $id;
-    private $name;
-    private $date;
-    private $time;
-    private $duration;
-    private $description;
-    private $img_href;
+    private $session_id;
+    private $account_id;
 
     public function __get($attr) {
         if (isset($this->$attr))

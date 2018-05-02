@@ -1,15 +1,10 @@
 <?php
 
 
-class Event {
-
+class Hall {
     private $id;
     private $name;
-    private $date;
-    private $time;
-    private $duration;
-    private $description;
-    private $img_href;
+    private $seat_count;
 
     public function __get($attr) {
         if (isset($this->$attr))

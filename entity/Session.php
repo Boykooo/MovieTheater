@@ -1,15 +1,12 @@
 <?php
 
 
-class Event {
+class Session {
 
     private $id;
-    private $name;
     private $date;
-    private $time;
-    private $duration;
-    private $description;
-    private $img_href;
+    private $film_id;
+    private $hall_id;
 
     public function __get($attr) {
         if (isset($this->$attr))
