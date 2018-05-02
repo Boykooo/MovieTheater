@@ -45,18 +45,22 @@ $isAuthenticated = $authController->isAuthenticated();
         <ul class="navbar-nav ml-auto" style="margin-right: 20px">
             <?php if ($isAuthenticated) : ?>
                 <li class="dropdown">
-                    <a id="drop1" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         Личный кабинет
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="/MovieTheater/view/personal_area.php">Профиль</a></li>
-                        <li><a href="/MovieTheater/shared/logout.php">Выйти</a></li>
+                        <li class="nav-item active">
+                            <a class="dropdown-item" href="/MovieTheater/view/personal_area.php">Профиль</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="dropdown-item" href="/MovieTheater/shared/logout.php">Выйти</a>
+                        </li>
                     </ul>
                 </li>
             <?php else : ?>
-                <li>
-                    <a href="/MovieTheater/view/login.php">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/MovieTheater/view/login.php">
                         Войти
                     </a>
                 </li>
