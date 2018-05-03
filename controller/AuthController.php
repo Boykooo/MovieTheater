@@ -40,7 +40,7 @@ class AuthController {
         $token = $_SESSION[$this->tokenKey];
         $accountController = new AccountController();
         $account = $accountController->getByToken($token);
-        if ($account == null) {
+        if ($account == null || $account->role != 'ADMIN') {
             $this->logout();
         }
     }
