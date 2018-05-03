@@ -27,12 +27,38 @@ class AccountController {
     }
 
     public function getByToken($token) {
-        if ($token == null || empty($token)) {
+        if (empty($token)) {
             return null;
         }
         $connection = Database::getConnection();
         $statement = $connection->prepare("select * from account where token = :token");
         $statement->execute(['token' => $token]);
+        $statement->setFetchMode(PDO::FETCH_CLASS, 'Account');
+        $account = $statement->fetch();
+        $connection = null;
+        return $account;
+    }
+
+    public function createAccount(Account $account) {
+        $connection = Database::getConnection();
+        $statement = $connection->prepare('INSERT INTO account(email, firstname, lastname, reg_date, token, role, password)
+            VALUES (:email, :firstname, :lastname, :reg_date, :token, :role, :password)');
+        $statement->execute(array(
+            'email' => $account->email,
+            'firstname' => $account->firstname,
+            'lastname' => $account->lastname,
+            'reg_date' => $account->reg_date,
+            'token' => $account->token,
+            'role' => $account->role,
+            'password' => $account->password,
+        ));
+        $connection = null;
+    }
+
+    public function findByEmail($email) {
+        $connection = Database::getConnection();
+        $statement = $connection->prepare("select * from account where email = :email");
+        $statement->execute(['email' => $email]);
         $statement->setFetchMode(PDO::FETCH_CLASS, 'Account');
         $account = $statement->fetch();
         $connection = null;

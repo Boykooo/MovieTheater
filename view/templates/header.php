@@ -61,7 +61,12 @@ $isAuthenticated = $authController->isAuthenticated();
             <?php else : ?>
                 <li class="nav-item active">
                     <a class="nav-link" href="/MovieTheater/view/login.php">
-                        Войти/Регистрация
+                        Войти
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/MovieTheater/view/register.php">
+                        Регистрация
                     </a>
                 </li>
             <?php endif; ?>
