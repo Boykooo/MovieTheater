@@ -36,7 +36,7 @@ VALUES (
   "2017-01-01",
   "812542c4-fcdc-491c-99e5-3f4bf270431f",
   "ADMIN",
-  "admin"
+  "d033e22ae348aeb5660fc2140aec35850c4da997"
 );
 
 INSERT INTO event(name, date, time, duration, description, img_href)

@@ -20,7 +20,7 @@ $account = $accountController->getAccount();
         <div class="col-md-11">
             <h2>Персональные данные</h2>
             <div style="margin-left: 20px">
-                <b>Имя:</b> <br/>
+                <b>Имя:</b> <?php echo $account->firstname ?> <br/>
                 <b>Фамилия:</b> <?php echo $account->lastname ?> <br/>
                 <b>Дата регистрации:</b> <?php echo $account->reg_date ?> <br/>
                 <b>Email:</b> <?php echo $account->email ?> <br/>
