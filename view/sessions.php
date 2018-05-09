@@ -18,7 +18,7 @@ include "../controller/SessionController.php";
         <?php
         $filmController = new FilmController();
         $sessionController = new SessionController();
-        $films = $filmController->getFilms();
+        $films = $filmController->getActualFilms();
         foreach ($films as $film): ?>
             <div class="row">
                 <div class="col-md-4">

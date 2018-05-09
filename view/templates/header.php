@@ -39,7 +39,7 @@ $isAuthenticated = $authController->isAuthenticated();
                 <a class="nav-link" href="/MovieTheater/view/events.php">События</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/MovieTheater/view/about.php">О нас</a>
+                <a class="nav-link" href="/MovieTheater/view/contact.php">О нас</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto" style="margin-right: 20px">
