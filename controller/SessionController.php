@@ -71,4 +71,16 @@ class SessionController {
         $connection = null;
         return $sessions;
     }
+
+    public function findByFilmIdDate($film_id, $date) {
+        $connection = Database::getConnection();
+        $statement = $connection->prepare('SELECT * FROM session WHERE film_id = :film_id AND date = :date');
+        $statement->execute(array(
+            'film_id' => $film_id,
+            'date' => $date
+        ));
+        $sessions = $statement->fetchAll(PDO::FETCH_CLASS, 'Session');
+        $connection = null;
+        return $sessions;
+    }
 }
