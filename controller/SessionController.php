@@ -28,7 +28,7 @@ class SessionController {
     public function createSession(Session $session) {
         $connection = Database::getConnection();
         $statement = $connection->prepare('INSERT INTO session(date, time, film_id, hall_id)
-            VALUES (:date, :time, :film_id, hall_id)');
+            VALUES (:date, :time, :film_id, :hall_id)');
         $statement->execute(array(
             'date' => $session->date,
             'time' => $session->time,

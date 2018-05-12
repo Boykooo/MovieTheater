@@ -69,13 +69,21 @@ include "../controller/SessionController.php";
                             <div class="col-md-8">
                                 <div class="row">
                                     <?php
-                                    foreach ($sessions as $session):?>
-                                        <div class="col-md-2 text-center border border-primary rounded schedule">
-                                            <a href="session.php?id=<?php echo $session->id ?>" style="color: black">
+                                    foreach ($sessions as $session):
+                                        if ($session->date == date("Y-m-d") && $session->time <= date("H:m:s")):
+                                            ?>
+                                            <div class="col-md-2 text-center border border-light rounded schedule" style="background: rgba(221,221,221,0.98)">
                                                 <h4><?php echo date('H:i', strtotime($session->time)) ?></h4>
-                                            </a>
-                                        </div>
-                                    <?php endforeach; ?>
+                                            </div>
+                                        <?php else: ?>
+                                            <div class="col-md-2 text-center border border-primary rounded schedule">
+                                                <a href="session.php?id=<?php echo $session->id ?>"
+                                                   style="color: black">
+                                                    <h4><?php echo date('H:i', strtotime($session->time)) ?></h4>
+                                                </a>
+                                            </div>
+                                        <?php endif ?>
+                                    <?php endforeach ?>
                                 </div>
                             </div>
                             <br/><br/>
