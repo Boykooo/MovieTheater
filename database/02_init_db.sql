@@ -61,16 +61,49 @@ VALUES (
   "https://scontent-frt3-2.cdninstagram.com/vp/b3411585e17d956258350015b497849e/5B4DF9A4/t51.2885-15/e35/27880254_1595519680564080_3851489932455444480_n.jpg"
 );
 
-INSERT INTO hall(name, seat_count)
-VALUES ("зал 1", 12);
+INSERT INTO hall(name, seat_count, row_count)
+VALUES ("зал 1", 16, 4);
 
 INSERT INTO session(date, time, film_id, hall_id)
-VALUES ("2018-04-30", "10:00:00", 1, 1);
+VALUES ("2018-05-12", "10:00:00", 1, 1);
 INSERT INTO session(date, time, film_id, hall_id)
-VALUES ("2018-04-30", "13:00:00", 1, 1);
+VALUES ("2018-05-12", "13:00:00", 1, 1);
 INSERT INTO session(date, time, film_id, hall_id)
-VALUES ("2018-04-30", "16:00:00", 1, 1);
+VALUES ("2018-05-09", "16:00:00", 1, 1);
 INSERT INTO session(date, time, film_id, hall_id)
-VALUES ("2018-04-30", "19:00:00", 1, 1);
+VALUES ("2018-05-09", "19:00:00", 1, 1);
 INSERT INTO session(date, time, film_id, hall_id)
-VALUES ("2018-04-30", "22:00:00", 1, 1);
+VALUES ("2018-05-09", "22:00:00", 1, 1);
+
+INSERT INTO session_info(seat_number, row, status, cost, session_id)
+VALUES (1, 1, 'FREE', 100, 1);
+INSERT INTO session_info(seat_number, row, status, cost, session_id)
+VALUES (2, 1, 'FREE', 100, 1);
+INSERT INTO session_info(seat_number, row, status, cost, session_id)
+VALUES (3, 1, 'FREE', 100, 1);
+INSERT INTO session_info(seat_number, row, status, cost, session_id)
+VALUES (4, 1, 'FREE', 100, 1);
+INSERT INTO session_info(seat_number, row, status, cost, session_id)
+VALUES (1, 2, 'FREE', 100, 1);
+INSERT INTO session_info(seat_number, row, status, cost, session_id)
+VALUES (2, 2, 'FREE', 100, 1);
+INSERT INTO session_info(seat_number, row, status, cost, session_id)
+VALUES (3, 2, 'FREE', 100, 1);
+INSERT INTO session_info(seat_number, row, status, cost, session_id)
+VALUES (4, 2, 'FREE', 100, 1);
+INSERT INTO session_info(seat_number, row, status, cost, session_id)
+VALUES (1, 3, 'FREE', 100, 1);
+INSERT INTO session_info(seat_number, row, status, cost, session_id)
+VALUES (2, 3, 'FREE', 100, 1);
+INSERT INTO session_info(seat_number, row, status, cost, session_id)
+VALUES (3, 3, 'FREE', 100, 1);
+INSERT INTO session_info(seat_number, row, status, cost, session_id)
+VALUES (4, 3, 'FREE', 100, 1);
+INSERT INTO session_info(seat_number, row, status, cost, session_id)
+VALUES (1, 4, 'FREE', 100, 1);
+INSERT INTO session_info(seat_number, row, status, cost, session_id)
+VALUES (2, 4, 'FREE', 100, 1);
+INSERT INTO session_info(seat_number, row, status, cost, session_id)
+VALUES (3, 4, 'FREE', 100, 1);
+INSERT INTO session_info(seat_number, row, status, cost, session_id)
+VALUES (4, 4, 'FREE', 100, 1);

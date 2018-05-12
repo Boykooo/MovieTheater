@@ -2,6 +2,7 @@
 
 
 class Account {
+
     private $id;
     private $email;
     private $firstname;

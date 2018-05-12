@@ -8,6 +8,7 @@ class SessionInfo {
     private $row;
     private $status;
     private $session_id;
+    private $cost;
 
     public function __get($attr) {
         if (isset($this->$attr))

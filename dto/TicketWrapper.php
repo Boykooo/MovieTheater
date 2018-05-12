@@ -1,12 +1,15 @@
 <?php
 
+class TicketWrapper {
 
-class Hall {
-
-    private $id;
+    private $session_info_id;
     private $name;
-    private $seat_count;
-    private $row_count;
+    private $seat_number;
+    private $row;
+    private $cost;
+    private $date;
+    private $time;
+    private $hall_id;
 
     public function __get($attr) {
         if (isset($this->$attr))

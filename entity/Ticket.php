@@ -2,9 +2,11 @@
 
 
 class Ticket {
+
     private $id;
-    private $session_id;
+    private $session_info_id;
     private $account_id;
+    private $paid;
 
     public function __get($attr) {
         if (isset($this->$attr))

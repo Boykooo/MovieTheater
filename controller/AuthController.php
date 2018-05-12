@@ -4,7 +4,6 @@ $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 require_once "$root/service/Database.php";
 require_once "$root/entity/Account.php";
 require_once "$root/controller/AccountController.php";
-require_once "$root/util/DebugHelper.php";
 
 class AuthController {
 
@@ -35,6 +34,8 @@ class AuthController {
         if ($account == null) {
             $this->logout();
         }
+
+        return $account;
     }
 
     public function adminAuthenticate() {

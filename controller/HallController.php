@@ -27,11 +27,12 @@ class HallController {
 
     public function createHall(Hall $hall) {
         $connection = Database::getConnection();
-        $statement = $connection->prepare('INSERT INTO hall(name, seat_count)
+        $statement = $connection->prepare('INSERT INTO hall(name, seat_count, row_count)
             VALUES (:name, :seat_count)');
         $statement->execute(array(
             'name' => $hall->name,
-            'seat_count' => $hall->seat_count
+            'seat_count' => $hall->seat_count,
+            'row_count' => $hall->row_count
         ));
         $connection = null;
     }
@@ -40,11 +41,13 @@ class HallController {
         $connection = Database::getConnection();
         $statement = $connection->prepare('UPDATE hall SET 
             name = :name, 
-            seat_count = :seat_count
+            seat_count = :seat_count,
+            row_count = :row_count,
             WHERE id = :id');
         $statement->execute(array(
             'name' => $hall->name,
             'seat_count' => $hall->seat_count,
+            'row_count' => $hall->row_count,
             'id' => $hall->id
         ));
         $connection = null;
