@@ -5,6 +5,8 @@ include "../controller/FilmController.php";
 include "../controller/SessionController.php";
 include_once "../controller/SessionInfoController.php";
 include_once "../controller/HallController.php";
+include_once "../controller/AuthController.php";
+include_once "../util/DebugHelper.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,6 +19,8 @@ $filmController = new FilmController();
 $sessionController = new SessionController();
 $hallController = new HallController();
 $sessionInfoController = new SessionInfoController();
+$authController = new AuthController();
+$isAuthenticated = $authController->isAuthenticated();
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $sessionInfoController->reservation();
@@ -41,6 +45,7 @@ foreach ($sessionInfos as $sessionInfo) {
 
 ?>
 <body>
+<input id="isAuthenticated" name="isAuthenticated" type="hidden" value="<? echo $isAuthenticated; ?>">
 <div class="container">
     <h3>Сеанс</h3>
     <hr class="my-4">
@@ -116,6 +121,11 @@ foreach ($sessionInfos as $sessionInfo) {
     }
 
     function reservationSeats() {
+        if (document.getElementById('isAuthenticated').value !== '1') {
+            alert('Только авторизованные пользователи могут бронировать места');
+            return;
+        }
+
         if (sessionInfoIds.length > 0) {
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'session.php', true);
