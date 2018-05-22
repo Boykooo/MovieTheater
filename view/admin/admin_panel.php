@@ -9,14 +9,21 @@ require "../../controller/FilmController.php";
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>Movie Theater</title>
+    <title>Control panel</title>
 </head>
 <body>
 <div class="container">
+    <h3>Control panel</h3>
+    <hr class="my-4">
     <div class="row">
-        <div class="col-xs-5 shadow-lg film-block"><h3>Фильмы</h3></div>
-        <div class="col-xs-1"></div>
-        <div class="col-xs-5 bg-info film-block"><h3>События</h3></div>
+        <a class="col-md-3 shadow-lg admin-block rounded border border-primary" href="film/list.php"
+           style="color: black"><h3>Films</h3></a>
+        <div class="col-md-1"></div>
+        <a class="col-md-4 shadow-lg admin-block rounded border border-primary" href="session/list.php"
+           style="color: black"><h3>Sessions</h3></a>
+        <div class="col-md-1"></div>
+        <a class="col-md-3 shadow-lg admin-block rounded border border-primary" href="event/list.php"
+           style="color: black"><h3>Events</h3></a>
     </div>
 </div>
 </body>

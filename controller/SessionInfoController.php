@@ -72,12 +72,13 @@ class SessionInfoController {
 
     public function createSessionInfo(SessionInfo $session_info) {
         $connection = Database::getConnection();
-        $statement = $connection->prepare('INSERT INTO session_info(seat_number, row, status, session_id)
-            VALUES (:seat_number, :row, :status, :session_id)');
+        $statement = $connection->prepare('INSERT INTO session_info(seat_number, row, status, cost, session_id)
+            VALUES (:seat_number, :row, :status, :cost, :session_id)');
         $statement->execute(array(
             'seat_number' => $session_info->seat_number,
             'row' => $session_info->row,
             'status' => $session_info->status,
+            'cost' => $session_info->cost,
             'session_id' => $session_info->session_id
         ));
         $connection = null;
@@ -88,13 +89,15 @@ class SessionInfoController {
         $statement = $connection->prepare('UPDATE session_info SET 
             seat_number = :seat_number, 
             row = :row, 
-            status = :status, 
+            status = :status,
+            cost = :cost,
             session_id = :session_id
             WHERE id = :id');
         $statement->execute(array(
             'seat_number' => $session_info->seat_number,
             'row' => $session_info->row,
             'status' => $session_info->status,
+            'cost' => $session_info->cost,
             'session_id' => $session_info->session_id,
             'id' => $session_info->id
         ));
@@ -105,6 +108,13 @@ class SessionInfoController {
         $connection = Database::getConnection();
         $statement = $connection->prepare('DELETE FROM session_info WHERE id = :id');
         $statement->execute(array('id' => $id));
+        $connection = null;
+    }
+
+    public function deleteBySessionId($session_id) {
+        $connection = Database::getConnection();
+        $statement = $connection->prepare('DELETE FROM session_info WHERE session_id = :session_id');
+        $statement->execute(array('session_id' => $session_id));
         $connection = null;
     }
 }

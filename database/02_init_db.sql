@@ -64,16 +64,16 @@ VALUES (
 INSERT INTO hall(name, seat_count, row_count)
 VALUES ("зал 1", 16, 4);
 
-INSERT INTO session(date, time, film_id, hall_id)
-VALUES ("2018-05-12", "10:00:00", 1, 1);
-INSERT INTO session(date, time, film_id, hall_id)
-VALUES ("2018-05-12", "13:00:00", 1, 1);
-INSERT INTO session(date, time, film_id, hall_id)
-VALUES ("2018-05-09", "16:00:00", 1, 1);
-INSERT INTO session(date, time, film_id, hall_id)
-VALUES ("2018-05-09", "19:00:00", 1, 1);
-INSERT INTO session(date, time, film_id, hall_id)
-VALUES ("2018-05-09", "22:00:00", 1, 1);
+INSERT INTO session(date, time, cost, film_id, hall_id)
+VALUES ("2018-05-12", "10:00:00", 100, 1, 1);
+INSERT INTO session(date, time, cost, film_id, hall_id)
+VALUES ("2018-05-12", "13:00:00", 100, 1, 1);
+INSERT INTO session(date, time, cost, film_id, hall_id)
+VALUES ("2018-05-09", "16:00:00", 100, 1, 1);
+INSERT INTO session(date, time, cost, film_id, hall_id)
+VALUES ("2018-05-09", "19:00:00", 100, 1, 1);
+INSERT INTO session(date, time, cost, film_id, hall_id)
+VALUES ("2018-05-09", "22:00:00", 100, 1, 1);
 
 INSERT INTO session_info(seat_number, row, status, cost, session_id)
 VALUES (1, 1, 'FREE', 100, 1);

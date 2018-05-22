@@ -14,10 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $session = new Session();
         $session->date = $_POST["date"];
         $session->time = $_POST["time"];
+        $session->cost = $_POST["cost"];
         $session->film_id = $_POST["film"];
         $session->hall_id = $_POST["hall"];
         $sessionController = new SessionController();
-        $sessionController->createSession($session);
+        $sessionController->createSessionWithSessionsInfo($session);
         header('Location: list.php');
         exit;
     }
@@ -49,6 +50,12 @@ $halls = $hallController->getHalls();
         <label for="time" class="col-sm-1 col-form-label text-right">Time</label>
         <div class="col-sm-2">
             <input type="time" class="form-control" id="time" name="time" placeholder="Time" required/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="cost" class="col-sm-1 col-form-label text-right">Cost</label>
+        <div class="col-sm-2">
+            <input type="number" class="form-control" id="cost" name="cost" placeholder="Cost" min="0" max="5000" required/>
         </div>
     </div>
     <div class="form-group row">

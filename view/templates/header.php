@@ -41,6 +41,9 @@ $isAuthenticated = $authController->isAuthenticated();
             <li class="nav-item active">
                 <a class="nav-link" href="/MovieTheater/view/contact.php">О нас</a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/MovieTheater/view/admin/admin_panel.php">Панель управления</a>
+            </li>
         </ul>
         <ul class="navbar-nav ml-auto" style="margin-right: 20px">
             <?php if ($isAuthenticated) : ?>

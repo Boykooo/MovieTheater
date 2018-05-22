@@ -24,11 +24,10 @@
     text-overflow: ellipsis;
 }
 
-.film-block {
+.admin-block {
     text-align: center;
-    padding: 20px 0;
-    height: 100px;
-    border-radius: 15px 50px;
+    padding: 10px 0;
+    height: 60px;
 }
 
 .card-img-top {

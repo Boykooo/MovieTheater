@@ -4,5 +4,5 @@ include($_SERVER["DOCUMENT_ROOT"] . "/shared/authenticate.php");
 require "../../../controller/SessionController.php";
 
 $sessionController = new SessionController();
-$sessionController->deleteById($_POST["id"]);
+$sessionController->deleteByIdWithSessionsInfo($_POST["id"]);
 header('Location: list.php');

@@ -3,8 +3,8 @@ session_start();
 include "templates/header.php";
 include "../controller/FilmController.php";
 include "../controller/SessionController.php";
-include "../controller/SessionInfoController.php";
-include "../controller/HallController.php";
+include_once "../controller/SessionInfoController.php";
+include_once "../controller/HallController.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

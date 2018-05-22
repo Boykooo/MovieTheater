@@ -5,7 +5,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/shared/authenticate.php");
 require "../../templates/header.php";
 require "../../../controller/SessionController.php";
 require "../../../controller/FilmController.php";
-require "../../../controller/HallController.php";
+require_once "../../../controller/HallController.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +25,7 @@ require "../../../controller/HallController.php";
             <tr>
                 <th>Date</th>
                 <th>Time</th>
+                <th>Cost</th>
                 <th>Film</th>
                 <th>Hall</th>
                 <th></th>
@@ -43,6 +44,7 @@ require "../../../controller/HallController.php";
                 <tr class="th-limit-words" style="overflow: hidden">
                     <td><?php echo $session->date ?></td>
                     <td><?php echo $session->time ?></td>
+                    <td><?php echo $session->cost ?></td>
                     <td><?php echo $film->name ?></td>
                     <td><?php echo $hall->name ?></td>
                     <td>
