@@ -6,6 +6,7 @@ include "templates/header.php";
 require_once "../controller/AccountController.php";
 require_once "../controller/TicketController.php";
 require_once "../controller/SessionInfoController.php";
+require_once "../controller/HallController.php";
 $accountController = new AccountController();
 $account = $accountController->getAccount();
 
@@ -15,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 }
 
 $ticketController = new TicketController();
+$hallController = new HallController();
 $tickets = $ticketController->getConvertedTicketsByCurrentUser();
 ?>
 <!DOCTYPE html>
@@ -61,7 +63,9 @@ $tickets = $ticketController->getConvertedTicketsByCurrentUser();
                 <th></th>
             </tr>
             </thead>
-            <?php foreach ($tickets as $ticketWrapper): ?>
+            <?php foreach ($tickets as $ticketWrapper):
+                $hall = $hallController->findById($ticketWrapper->hall_id);
+                ?>
                 <tr class="th-limit-words" style="overflow: hidden">
                     <td><?php echo $ticketWrapper->name ?></td>
                     <td><?php echo $ticketWrapper->date ?></td>
@@ -69,7 +73,7 @@ $tickets = $ticketController->getConvertedTicketsByCurrentUser();
                     <td><?php echo $ticketWrapper->row ?></td>
                     <td> <?php echo $ticketWrapper->seat_number ?> </td>
                     <td> <?php echo $ticketWrapper->cost ?> </td>
-                    <td> <?php echo $ticketWrapper->hall_id ?> </td>
+                    <td> <?php echo $hall->name ?> </td>
                     <td style="text-align: center">
                         <form action="personal_area.php" method="post">
                             <input type="hidden" value="<?php echo $ticketWrapper->session_info_id ?>" name="session_info_id">
