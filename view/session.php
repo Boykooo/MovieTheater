@@ -54,7 +54,7 @@ foreach ($sessionInfos as $sessionInfo) {
             <?php echo $film->name ?>
         </a>
         <br/>
-        <?php echo date('H:i, ', strtotime($session->time)) . date('j.m, ', strtotime($session->date)) . $hall->name ?>
+        <?php echo date('H:i, ', strtotime($session->time)) . date('j.m, ', strtotime($session->date)) . $hall->name . ', Цена билета: '. $session->cost?>
     </div>
     <div class="row" style="margin-top: 50px">
         <div class="col-md-8" style="font-size: 18px">
