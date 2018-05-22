@@ -15,16 +15,17 @@ class AuthController {
             $password = $_POST["password"];
         }
         if (empty($email) || empty($password)) {
-            return;
+            return false;
         }
 
         $accountController = new AccountController();
         $account = $accountController->getByEmailAndPassword($email, sha1($password));
-        if ($account == null) {
-            $this->logout();
-        } else {
+        if ($account != null) {
             $_SESSION[$this->tokenKey] = $account->token;
+            return true;
         }
+
+        return false;
     }
 
     public function authenticate() {
@@ -48,7 +49,7 @@ class AuthController {
         $token = $_SESSION[$this->tokenKey];
         $accountController = new AccountController();
         $account = $accountController->getByToken($token);
-        return $account != null || $account->role == 'ADMIN';
+        return $account != null && $account->role == 'ADMIN';
     }
 
     public function isAuthenticated() {

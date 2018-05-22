@@ -6,6 +6,13 @@ $isAuthenticated = $authController->isAuthenticated();
 if ($isAuthenticated) {
     header("Location: /MovieTheater/view/personal_area.php");
 }
+$loginSuccess = true;
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    $loginSuccess = $authController->login();
+    if ($loginSuccess) {
+        header("Location: personal_area.php");
+    }
+}
 include "templates/header.php";
 ?>
 <!DOCTYPE html>
@@ -20,7 +27,14 @@ include "templates/header.php";
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-5">
-            <form action="login_check.php" method="post">
+            <?php if (!$loginSuccess): ?>
+                <div class="row" style="margin-bottom: 30px">
+                    <span style="color: #b63239;">
+                        <h4>Неверное имя пользователя или пароль<h3>
+                    </span>
+                </div>
+            <?php endif; ?>
+            <form action="login.php" method="post">
                 <div class="row form-group col-md-12" style="padding: 0">
                     <label for="email" class="col-sm-4" style="padding: 0; margin: 0">
                         Email
