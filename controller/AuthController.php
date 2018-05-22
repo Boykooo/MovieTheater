@@ -39,12 +39,12 @@ class AuthController {
     }
 
     public function adminAuthenticate() {
-        if (!$this->isAdminAuthenticate()) {
+        if (!$this->isAdminAuthenticated()) {
             $this->logout();
         }
     }
 
-    public function isAdminAuthenticate() {
+    public function isAdminAuthenticated() {
         $token = $_SESSION[$this->tokenKey];
         $accountController = new AccountController();
         $account = $accountController->getByToken($token);
